@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUD</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #hud-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+
+        .hud-box {
+            width: 50px;
+            height: 20px;
+            background-color: #333;
+            border: 1px solid #fff;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .health-bar, .armor-bar {
+            height: 100%;
+        }
+
+        .health-bar {
+            background-color: #e74c3c;
+        }
+
+        .armor-bar {
+            background-color: #3498db;
+        }
+
+        .bar-text {
+            color: #fff;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="hud-container">
+        <div class="hud-box">
+            <div class="health-bar" id="health-bar"></div>
+            <div class="bar-text" id="health-text">100</div>
+        </div>
+        <div class="hud-box">
+            <div class="armor-bar" id="armor-bar"></div>
+            <div class="bar-text" id="armor-text">100</div>
+        </div>
+    </div>
+
+<script>
+    function updateBars(health, armor) {
+        document.getElementById('health-bar').style.width = health + '%';
+        document.getElementById('health-text').innerText = Math.round(health);
+        document.getElementById('armor-bar').style.width = armor + '%';
+        document.getElementById('armor-text').innerText = Math.round(armor);
+    }
+</script>
+
+    
+</body>
+</html>
